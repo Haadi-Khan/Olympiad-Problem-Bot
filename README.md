@@ -12,6 +12,8 @@ This is a discord bot for randomly selecting AMC Problems. The major benefit of 
 
 Generating Random Problem: `?pr {10/12}`
 
-Generating Random Problem Based on Category: `?pc {alg/geo/nt/pr}`
+Generating Random Problem Based on Category: 
+Easy- `?pce {alg/geo/nt/pr}`
+Hard- `?pch {alg/geo/nt/pr}`
 
 alg is for algebra, geo is for geometry, nt is for number theory, and pr is for probability
