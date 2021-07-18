@@ -14,8 +14,8 @@ Generating Random Problem: `?pr {10/12}`
 
 Generating Random Problem Based on Category: 
 
-Easy- `?pce {alg/geo/nt/pr}`
+Easy- `?pce {alg/geo/nt/com}`
 
-Hard- `?pch {alg/geo/nt/pr}`
+Hard- `?pch {alg/geo/nt/com}`
 
 alg is for algebra, geo is for geometry, nt is for number theory, and pr is for probability
