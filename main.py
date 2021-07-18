@@ -1,24 +1,19 @@
+from random import randint, choice
 import discord
 from discord.ext import commands
-from random import randint, choice
 
-TOKEN = ''
+TOKEN = [line.strip() for line in open('TOKEN.txt')][0]
 client = commands.Bot(command_prefix='?')
 
-alg = [line.strip() for line in open('categories/Algebra.txt')]
-geo = [line.strip() for line in open('categories/Geometry.txt')]
-nt = [line.strip() for line in open('categories/NumberTheory.txt')]
-pr = [line.strip() for line in open('categories/Probability.txt')]
+e_alg = [line.strip() for line in open('categories/Easy/Algebra.txt')]
+e_com = [line.strip() for line in open('categories/Easy/Combinatorics.txt')]
+e_geo = [line.strip() for line in open('categories/Easy/Geometry.txt')]
+e_nt = [line.strip() for line in open('categories/Easy/NumberTheory.txt')]
 
-'''
-TODO
-
-provide a problem based on its category
-format the txts like this: 102020A4
-level, then year, then version, then question num
-
-
-'''
+h_alg = [line.strip() for line in open('categories/Hard/Algebra.txt')]
+h_com = [line.strip() for line in open('categories/Hard/Combinatorics.txt')]
+h_geo = [line.strip() for line in open('categories/Hard/Geometry.txt')]
+h_nt = [line.strip() for line in open('categories/Hard/NumberTheory.txt')]
 
 
 @client.event
@@ -26,7 +21,7 @@ async def on_ready():
     print('We have logged in as {0.user}'.format(client))
 
 
-@client.command(pass_context=True, aliases=['pr'])
+@client.command(pass_context=True, aliases=['h_pr'])
 async def rand_prob(ctx, level):
     try:
         if level == '10' or level == '12':
@@ -46,27 +41,51 @@ async def rand_prob(ctx, level):
         await ctx.send("Invalid Version")
 
 
-# User inputs should be alg, geo, nt, pr
-@client.command(name='pc')
+# Easy Questions
+@client.command(name='pce')
 async def cat_prob(ctx, cat):
     if cat == 'alg':
-        i = randint(0, len(alg) - 1)
-        level, year, version, question = alg[i][0:2], alg[i][2:6], alg[i][6:7], alg[7:]
+        i = randint(0, len(e_alg) - 1)
+        year, level, version, question = e_alg[i][0:4], e_alg[i][4:6], e_alg[i][6:7], e_alg[i][7:]
+        await cat_problem(ctx, level, year, version, question)
+
+    if cat == 'com':
+        i = randint(0, len(e_com) - 1)
+        year, level, version, question = e_com[i][0:4], e_com[i][4:6], e_com[i][6:7], e_com[i][7:]
         await cat_problem(ctx, level, year, version, question)
 
     if cat == 'geo':
-        i = randint(0, len(geo) - 1)
-        level, year, version, question = geo[i][0:2], geo[i][2:6], geo[i][6:7], geo[7:]
+        i = randint(0, len(e_geo) - 1)
+        year, level, version, question = e_geo[i][0:4], e_geo[i][4:6], e_geo[i][6:7], e_geo[i][7:]
         await cat_problem(ctx, level, year, version, question)
 
     if cat == 'nt':
-        i = randint(0, len(nt) - 1)
-        level, year, version, question = nt[i][0:2], nt[i][2:6], nt[i][6:7], nt[7:]
+        i = randint(0, len(e_nt) - 1)
+        year, level, version, question = e_nt[i][0:4], e_nt[i][4:6], e_nt[i][6:7], e_nt[i][7:]
         await cat_problem(ctx, level, year, version, question)
 
-    if cat == 'pr':
-        i = randint(0, len(pr) - 1)
-        level, year, version, question = pr[i][0:2], pr[i][2:6], pr[i][6:7], pr[7:]
+
+# Hard Questions
+@client.command(name='pch')
+async def cat_prob(ctx, cat):
+    if cat == 'alg':
+        i = randint(0, len(h_alg) - 1)
+        year, level, version, question = h_alg[i][0:4], h_alg[i][4:6], h_alg[i][6:7], h_alg[i][7:]
+        await cat_problem(ctx, level, year, version, question)
+
+    if cat == 'com':
+        i = randint(0, len(h_com) - 1)
+        year, level, version, question = h_com[i][0:4], h_com[i][4:6], h_com[i][6:7], h_com[i][7:]
+        await cat_problem(ctx, level, year, version, question)
+
+    if cat == 'geo':
+        i = randint(0, len(h_geo) - 1)
+        year, level, version, question = h_geo[i][0:4], h_geo[i][4:6], h_geo[i][6:7], h_geo[i][7:]
+        await cat_problem(ctx, level, year, version, question)
+
+    if cat == 'nt':
+        i = randint(0, len(h_nt) - 1)
+        year, level, version, question = h_nt[i][0:4], h_nt[i][4:6], h_nt[i][6:7], h_nt[i][7:]
         await cat_problem(ctx, level, year, version, question)
 
 
@@ -80,7 +99,7 @@ async def cat_problem(ctx, level, year, version, question):
     )
     embed.set_image(url="attachment://image.png")
 
-    await ctx.send(embed=embed)
+    await ctx.send(file=file, embed=embed)
 
 
 client.run(TOKEN)
