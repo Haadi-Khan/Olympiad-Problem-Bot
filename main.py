@@ -21,7 +21,7 @@ async def on_ready():
     print('We have logged in as {0.user}'.format(client))
 
 
-@client.command(pass_context=True, aliases=['h_pr'])
+@client.command(pass_context=True, aliases=['pr'])
 async def rand_prob(ctx, level):
     try:
         if level == '10' or level == '12':
@@ -29,8 +29,8 @@ async def rand_prob(ctx, level):
             path = 'AMC/%d/%d/%s/%d.png' % (int(level), year, version, question)
             file = discord.File(path, filename='image.png')
             embed = discord.Embed(
-                title='AMC ' + version + ' Problem',
-                description='%d AMC %d%s Question %d' % (year, int(level), version, question),
+                title='AMC ' + level + version + ' Problem',
+                description='[Solution](https://artofproblemsolving.com/wiki/index.php/%d_AMC_%s%s_Problems/Problem_%d)' % (year, level, version, question),
                 color=discord.Colour.blue()
             )
             embed.set_image(url="attachment://image.png")
@@ -93,8 +93,8 @@ async def cat_problem(ctx, level, year, version, question):
     path = 'AMC/%s/%s/%s/%s.png' % (level, year, version, question)
     file = discord.File(path, filename='image.png')
     embed = discord.Embed(
-        title='AMC ' + version + ' Problem',
-        description='%s AMC %s%s Question %s' % (year, level, version, question),
+        title='AMC ' + level + version + ' Problem',
+        description='[Solution](https://artofproblemsolving.com/wiki/index.php/%s_AMC_%s%s_Problems/Problem_%s)' % (year, level, version, question),
         color=discord.Colour.blue()
     )
     embed.set_image(url="attachment://image.png")
