@@ -52,55 +52,35 @@ async def cat_prob(ctx, cat):
     if cat == 'alg':
         i = randint(0, len(alg) - 1)
         level, year, version, question = alg[i][0:2], alg[i][2:6], alg[i][6:7], alg[7:]
-        path = 'AMC/%s/%s/%s/%s.png' % (level, year, version, question)
-        file = discord.File(path, filename='image.png')
-        embed = discord.Embed(
-            title='AMC ' + version + ' Problem',
-            description='%s AMC %s%s Question %s' % (year, level, version, question),
-            color=discord.Colour.blue()
-        )
-        embed.set_image(url="attachment://image.png")
+        await cat_problem(ctx, level, year, version, question)
 
-        await ctx.send(embed=embed)
     if cat == 'geo':
         i = randint(0, len(geo) - 1)
         level, year, version, question = geo[i][0:2], geo[i][2:6], geo[i][6:7], geo[7:]
-        path = 'AMC/%s/%s/%s/%s.png' % (level, year, version, question)
-        file = discord.File(path, filename='image.png')
-        embed = discord.Embed(
-            title='AMC ' + version + ' Problem',
-            description='%s AMC %s%s Question %s' % (year, level, version, question),
-            color=discord.Colour.blue()
-        )
-        embed.set_image(url="attachment://image.png")
+        await cat_problem(ctx, level, year, version, question)
 
-        await ctx.send(embed=embed)
     if cat == 'nt':
         i = randint(0, len(nt) - 1)
         level, year, version, question = nt[i][0:2], nt[i][2:6], nt[i][6:7], nt[7:]
-        path = 'AMC/%s/%s/%s/%s.png' % (level, year, version, question)
-        file = discord.File(path, filename='image.png')
-        embed = discord.Embed(
-            title='AMC ' + version + ' Problem',
-            description='%s AMC %s%s Question %s' % (year, level, version, question),
-            color=discord.Colour.blue()
-        )
-        embed.set_image(url="attachment://image.png")
+        await cat_problem(ctx, level, year, version, question)
 
-        await ctx.send(embed=embed)
     if cat == 'pr':
         i = randint(0, len(pr) - 1)
         level, year, version, question = pr[i][0:2], pr[i][2:6], pr[i][6:7], pr[7:]
-        path = 'AMC/%s/%s/%s/%s.png' % (level, year, version, question)
-        file = discord.File(path, filename='image.png')
-        embed = discord.Embed(
-            title='AMC ' + version + ' Problem',
-            description='%s AMC %s%s Question %s' % (year, level, version, question),
-            color=discord.Colour.blue()
-        )
-        embed.set_image(url="attachment://image.png")
+        await cat_problem(ctx, level, year, version, question)
 
-        await ctx.send(embed=embed)
+
+async def cat_problem(ctx, level, year, version, question):
+    path = 'AMC/%s/%s/%s/%s.png' % (level, year, version, question)
+    file = discord.File(path, filename='image.png')
+    embed = discord.Embed(
+        title='AMC ' + version + ' Problem',
+        description='%s AMC %s%s Question %s' % (year, level, version, question),
+        color=discord.Colour.blue()
+    )
+    embed.set_image(url="attachment://image.png")
+
+    await ctx.send(embed=embed)
 
 
 client.run(TOKEN)
