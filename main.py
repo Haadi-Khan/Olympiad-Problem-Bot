@@ -34,7 +34,7 @@ async def on_ready():
 
 @client.command(name='amc')
 async def rand_prob(ctx, level):
-    if level == 10 or level == 12:
+    if level == '10' or level == '12':
         year, version, question = randint(2002, 2021), choice(('A', 'B')), randint(1, 25)
         path = 'AMC/%s/%d/%s/%d.png' % (level, year, version, question)
         file = discord.File(path, filename='image.png')
