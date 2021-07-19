@@ -6,13 +6,15 @@
 
 Thanks to [Ryan Rudes's AMC Problem Scraper](https://github.com/Ryan-Rudes/amc-problems) for the images folder here.
 
-This is a discord bot for randomly selecting AMC Problems. The major benefit of this bot over others is that it sorts the problems by category which is incredibly helpful for targeted practice. It also allows you to randomly select AMC 10/12 problems normally.
+This is a discord bot for randomly selecting AMC/AIME Problems. The major benefit of this bot over others is that it sorts the problems by category which is incredibly helpful for targeted practice. It also allows you to randomly select AMC 10/12 or AIME problems normally.
 
 ## Syntax
 
-Generating Random Problem: `?pr {10/12}`
+Generating Random AMC Problem: `?amc {10/12}`
 
-Generating Random Problem Based on Category: 
+Generating Random AIME Problem: `?aime`
+
+Generating Random Problem Based on Category:
 
 Easy- `?pce {alg/geo/nt/com}`
 
