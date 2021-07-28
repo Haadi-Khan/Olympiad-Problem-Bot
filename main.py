@@ -39,7 +39,7 @@ async def rand_prob(ctx, level):
         path = 'AMC/%s/%d/%s/%d.png' % (level, year, version, question)
         file = discord.File(path, filename='image.png')
         embed = discord.Embed(
-            title='AMC ' + level + version + ' Problem',
+            title='%d AMC %d%s Question %d' % (year, level, version, question),
             description='[Solution](https://artofproblemsolving.com/wiki/index.php/%d_AMC_%s%s_Problems/Problem_%d)'
                         % (year, level, version, question),
             color=discord.Colour.blue()
@@ -56,7 +56,7 @@ async def rand_prob(ctx):
     path = 'AIME/%d/%s/%d.png' % (year, version, question)
     file = discord.File(path, filename='image.png')
     embed = discord.Embed(
-        title='AIME ' + version + ' Problem',
+        title='%d AIME %s Question %d' % (year, version, question),
         description='[Solution](https://artofproblemsolving.com/wiki/index.php/%d_AIME_%s_Problems/Problem_%s)'
                     % (year, version, question),
         color=discord.Colour.blue()
@@ -120,7 +120,7 @@ async def cat_problem(ctx, exam, level, year, version, question):
         link = 'https://artofproblemsolving.com/wiki/index.php/%s_AMC_%s%s_Problems/Problem_%s' % (
             year, level, version, question)
         embed = discord.Embed(
-            title='AMC ' + level + version + ' Problem',
+            title='%s AMC %s%s Question %s' % (year, level, version, question),
             description='[Solution](' + link + ')',
             color=discord.Colour.blue()
         )
@@ -133,7 +133,7 @@ async def cat_problem(ctx, exam, level, year, version, question):
         link = 'https://artofproblemsolving.com/wiki/index.php/%s_AIME_%s_Problems/Problem_%s' % (
             year, version, question)
         embed = discord.Embed(
-            title='AIME ' + version + ' Problem',
+            title='%s AIME %s Question %s' % (year, version, question),
             description='[Solution](' + link + ')',
             color=discord.Colour.blue()
         )
