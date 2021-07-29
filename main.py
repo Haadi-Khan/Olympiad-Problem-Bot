@@ -28,7 +28,7 @@ async def help(ctx):
                     'Hard- `?pch {alg/geo/nt/com}`\n'
                     'alg is for algebra, geo is for geometry, nt is for number theory, and com is for '
                     'combinatorics/probability\n\n\n'
-                    
+
                     '**Generating Random Physics Problem:**\n'
                     'Generating Random F=MA Problem: `?fma`\n\n'
                     '**By Category:** \n'
@@ -36,8 +36,9 @@ async def help(ctx):
                     'kin is for kinematics, dyn is for dynamics, nrg is for energy, col is for collisions, som is for '
                     'systems of masses, rb is for rigid bodies, osc is for oscillatory motion, flu is for fluids, and '
                     'misc is dimensional analysis, elasticity, waves, etc.',
-            color=discord.Colour.green()
+        color=discord.Colour.green()
     )
     await ctx.send(embed=embed)
+
 
 bot.run(TOKEN)
