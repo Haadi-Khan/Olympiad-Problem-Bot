@@ -1,4 +1,3 @@
-from random import randint, choice
 import discord
 from discord.ext import commands
 
