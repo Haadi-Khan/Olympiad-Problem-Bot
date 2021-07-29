@@ -22,7 +22,7 @@ Easy- `?pce {alg/geo/nt/com}`
 
 Hard- `?pch {alg/geo/nt/com}`
 
-Physics- `pcp {kin/dyn/nrg/col/som/rb/osc/gra/flu/misc}
+Physics- `pcp {kin/dyn/nrg/col/som/rb/osc/gra/flu/misc}`
 
 alg is for algebra, geo is for geometry, nt is for number theory, and com is for combinatorics/probability
 
