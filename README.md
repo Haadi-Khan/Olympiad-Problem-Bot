@@ -10,6 +10,8 @@ This is a discord bot for randomly selecting AMC/AIME/F=MA Problems. The major b
 
 ## Syntax
 
+Syntax/Help command: `?help`
+
 Generating Random AMC Problem: `?amc {10/12}`
 
 Generating Random AIME Problem: `?aime`
