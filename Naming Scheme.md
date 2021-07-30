@@ -4,7 +4,7 @@ This used to be a comment in the code but was taking up too much space so it's h
 
 ## AMC + AIME
 
-Naming Scheme Test/Year/Level/Version/Question
+Naming Scheme: Test/Year/Level/Version/Question
 
 For AIMEs, threw in a 10 for the version just so I didn't have to change code, it's easier this way
 
@@ -19,3 +19,10 @@ AIME has had the convention of I and II for longer and this format makes it easi
 being standard. Other AMCs or former AIMEs might be added in the future but for now this is the format
 
 ## F=MA
+
+Naming Scheme: Version/Year/Question
+
+While this is simpler, we have to account for 2020 since it has two versions, so I added a version letter at the front
+of each question.
+
+**Examples:** A200823 (2008 F=MA Problem 23) | B202014 (2020 F=MA Ver. B Problem 14)
