@@ -62,6 +62,51 @@ source_questions = {
     '201323': ''
 }
 
+kin = [line.strip() for line in open('categories/physics/Kinematics.txt')]
+dyn = [line.strip() for line in open('categories/physics/Dynamics.txt')]
+nrg = [line.strip() for line in open('categories/physics/Energy.txt')]
+col = [line.strip() for line in open('categories/physics/Collisions.txt')]
+som = [line.strip() for line in open('categories/physics/System_Of_Masses.txt')]
+rb = [line.strip() for line in open('categories/physics/Rigid_Bodies.txt')]
+osc = [line.strip() for line in open('categories/physics/Oscillatory_Motion.txt')]
+gra = [line.strip() for line in open('categories/physics/Gravity.txt')]
+flu = [line.strip() for line in open('categories/physics/Fluids.txt')]
+misc = [line.strip() for line in open('categories/physics/Miscellaneous.txt')]
+
+
+async def prob(ctx, year: str, question: int):
+    path = 'Exams/fma/%s/%d.webp' % (year, question)
+    file = discord.File(path, filename='image.webp')
+
+    if question in exceptions[year]:
+        if question - 1 in exceptions[year]:
+            embed = discord.Embed(
+                title='%s F=MA Question %d' % (year, question),
+                description='[Solution](https://kevinshuang.com/%s-problem-%d)' % (year, question - 2),
+                color=discord.Colour.blue()
+            )
+            embed.set_image(url="attachment://image.webp")
+            embed.set_thumbnail(url=source_questions[year + str(question - 2)])
+            await ctx.send(file=file, embed=embed)
+        else:
+            embed = discord.Embed(
+                title='%s F=MA Question %d' % (year, question),
+                description='[Solution](https://kevinshuang.com/%s-problems-%d-%d)' % (
+                    year, question - 1, question),
+                color=discord.Colour.blue()
+            )
+            embed.set_image(url="attachment://image.webp")
+            embed.set_thumbnail(url=source_questions[year + str(question - 1)])
+            await ctx.send(file=file, embed=embed)
+    else:
+        embed = discord.Embed(
+            title='%s F=MA Question %d' % (year, question),
+            description='[Solution](https://kevinshuang.com/%s-problem-%d)' % (year, question),
+            color=discord.Colour.blue()
+        )
+        embed.set_image(url="attachment://image.webp")
+        await ctx.send(file=file, embed=embed)
+
 
 class AAPTCog(commands.Cog):
     def __init__(self, bot):
@@ -70,37 +115,19 @@ class AAPTCog(commands.Cog):
     @commands.command(name='fma')
     async def fma_prob(self, ctx):
         year, question = str(2008), randint(1, 25)
-        year = year + choice('A', 'B') if year == 2020 else year
-        path = 'Exams/F=MA/%s/%d.webp' % (year, question)
-        file = discord.File(path, filename='image.webp')
+        year = year + choice('A', 'B') if year == '2020' else year
 
-        if question in exceptions[year]:
-            if question - 1 in exceptions[year]:
-                embed = discord.Embed(
-                    title='%s F=MA Question %d' % (year, question),
-                    description='[Solution](https://kevinshuang.com/%s-problem-%d)' % (year, question - 2),
-                    color=discord.Colour.blue()
-                )
-                embed.set_image(url="attachment://image.webp")
-                embed.set_thumbnail(url=source_questions[year + str(question - 2)])
-                await ctx.send(file=file, embed=embed)
-            else:
-                embed = discord.Embed(
-                    title='%s F=MA Question %d' % (year, question),
-                    description='[Solution](https://kevinshuang.com/%s-problems-%d-%d)' % (year, question - 1, question),
-                    color=discord.Colour.blue()
-                )
-                embed.set_image(url="attachment://image.webp")
-                embed.set_thumbnail(url=source_questions[year + str(question - 1)])
-                await ctx.send(file=file, embed=embed)
-        else:
-            embed = discord.Embed(
-                title='%s F=MA Question %d' % (year, question),
-                description='[Solution](https://kevinshuang.com/%s-problem-%d)' % (year, question),
-                color=discord.Colour.blue()
-            )
-            embed.set_image(url="attachment://image.webp")
-            await ctx.send(file=file, embed=embed)
+        await prob(ctx, year, question)
+
+    @commands.command(name='pcp')
+    async def fma_cat(self, ctx, cat):
+        version, year, question = ..., ..., ...  # str
+        if cat == 'kin':
+            i = randint(0, len(kin) - 1)
+            version, year, question = kin[i][0:1], kin[i][1:5], kin[i][5:]
+
+        year = year + version if year == '2020' else year
+        await prob(ctx, year, int(question))
 
 
 def setup(bot):
