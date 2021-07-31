@@ -17,11 +17,14 @@ rest tbd later lmao
 2015    : 
 2016    : 
 2017    : 
-2018    : 
-2019    : 
-2020A   : 
-2020B   : 
-2021    : 
+
+2018A   :
+2018B   : 
+2019A   :
+2019B   : 16/17
+2020A   : 9/10
+2020B   : 9/10
+2021    : 1/2
 
 Use a dictionary with all the exceptions for F=MA Solutions stored in an array
 storing the second or third question in a combined diagram, send back to first
@@ -37,11 +40,13 @@ exceptions = {
     '2015': [],
     '2016': [],
     '2017': [],
-    '2018': [],
-    '2019': [],
-    '2020A': [],
-    '2020B': [],
-    '2021': []
+    '2018A': [],
+    '2018B': [],
+    '2019A': [],
+    '2019B': [17],
+    '2020A': [10],
+    '2020B': [10],
+    '2021': [2]
 }
 source_questions = {
     '20084': 'https://i0.wp.com/kevinshuang.com/wp-content/uploads/2016/07/2008-4.png?resize=639%2C387&ssl=1',
@@ -59,7 +64,13 @@ source_questions = {
     '20135': '',
     '20138': '',
     '201319': '',
-    '201323': ''
+    '201323': '',
+
+    '2019B16': '',
+    '2020A9': 'https://i0.wp.com/kevinshuang.com/wp-content/uploads/2020/08/a9.png?resize=768%2C145&ssl=1',
+    '2020B9': 'https://i1.wp.com/kevinshuang.com/wp-content/uploads/2020/08/b9.png?resize=768%2C270&ssl=1',
+    '20211': 'https://i1.wp.com/kevinshuang.com/wp-content/uploads/2021/04/1.png?resize=768%2C490&ssl=1',
+
 }
 
 kin = [line.strip() for line in open('categories/physics/Kinematics.txt')]
@@ -91,8 +102,7 @@ async def prob(ctx, year: str, question: int):
         else:
             embed = discord.Embed(
                 title='%s F=MA Question %d' % (year, question),
-                description='[Solution](https://kevinshuang.com/%s-problems-%d-%d)' % (
-                    year, question - 1, question),
+                description='[Solution](https://kevinshuang.com/%s-problems-%d-%d)' % (year, question - 1, question),
                 color=discord.Colour.blue()
             )
             embed.set_image(url="attachment://image.webp")
@@ -114,19 +124,54 @@ class AAPTCog(commands.Cog):
 
     @commands.command(name='fma')
     async def fma_prob(self, ctx):
-        year, question = str(2008), randint(1, 25)
-        year = year + choice('A', 'B') if year == '2020' else year
-
+        year, question = str(randint(2008, 2021)), randint(1, 25)
+        year = year + choice(('A', 'B')) if year in ('2018', '2019', '2020') else year
         await prob(ctx, year, question)
 
     @commands.command(name='pcp')
     async def fma_cat(self, ctx, cat):
-        version, year, question = ..., ..., ...  # str
+        ver, year, question = ..., ..., ...  # str
         if cat == 'kin':
             i = randint(0, len(kin) - 1)
-            version, year, question = kin[i][0:1], kin[i][1:5], kin[i][5:]
+            ver, year, question = kin[i][0:1], kin[i][1:5], kin[i][5:]
 
-        year = year + version if year == '2020' else year
+        if cat == 'dyn':
+            i = randint(0, len(dyn) - 1)
+            ver, year, question = dyn[i][0:1], dyn[i][1:5], dyn[i][5:]
+
+        if cat == 'nrg':
+            i = randint(0, len(nrg) - 1)
+            ver, year, question = nrg[i][0:1], nrg[i][1:5], nrg[i][5:]
+
+        if cat == 'col':
+            i = randint(0, len(col) - 1)
+            ver, year, question = col[i][0:1], col[i][1:5], col[i][5:]
+
+        if cat == 'som':
+            i = randint(0, len(som) - 1)
+            ver, year, question = som[i][0:1], som[i][1:5], som[i][5:]
+
+        if cat == 'rb':
+            i = randint(0, len(rb) - 1)
+            ver, year, question = rb[i][0:1], rb[i][1:5], rb[i][5:]
+
+        if cat == 'osc':
+            i = randint(0, len(osc) - 1)
+            ver, year, question = osc[i][0:1], osc[i][1:5], osc[i][5:]
+
+        if cat == 'gra':
+            i = randint(0, len(gra) - 1)
+            ver, year, question = gra[i][0:1], gra[i][1:5], gra[i][5:]
+
+        if cat == 'flu':
+            i = randint(0, len(flu) - 1)
+            ver, year, question = flu[i][0:1], flu[i][1:5], flu[i][5:]
+
+        if cat == 'misc':
+            i = randint(0, len(misc) - 1)
+            ver, year, question = misc[i][0:1], misc[i][1:5], misc[i][5:]
+
+        year = year + ver if year in ('2018', '2019', '2020') else year
         await prob(ctx, year, int(question))
 
 
