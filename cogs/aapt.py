@@ -11,13 +11,10 @@ He combined a few questions per exam bc of combined questions on the exam itself
 2011    : 2/3/4 16/17 19/20
 2012    : 6/7
 2013    : 5/6 8/9 19/20/21 23/24
-
-rest tbd later lmao
-2014    : 
-2015    : 
-2016    : 
-2017    : 
-
+2014    : 12/13 23/24
+2015    : 7/8 9/10 12/13 14/15 19/20
+2016    : 5/6 14/15 21/22  
+2017    : 20/21/22
 2018A   :
 2018B   : 
 2019A   :
@@ -36,10 +33,10 @@ exceptions = {
     '2011': [3, 4, 17, 20],
     '2012': [7],
     '2013': [6, 9, 20, 21, 24],
-    '2014': [],
-    '2015': [],
-    '2016': [],
-    '2017': [],
+    '2014': [13, 24],
+    '2015': [8, 10, 13, 15, 20],
+    '2016': [6, 15, 22],
+    '2017': [8, 12, 15, 21, 22],
     '2018A': [],
     '2018B': [],
     '2019A': [],
@@ -51,22 +48,35 @@ exceptions = {
 source_questions = {
     '20084': 'https://i0.wp.com/kevinshuang.com/wp-content/uploads/2016/07/2008-4.png?resize=639%2C387&ssl=1',
     '200810': 'https://i2.wp.com/kevinshuang.com/wp-content/uploads/2016/07/2008-10.png?resize=639%2C295&ssl=1',
-    '20092': '',
-    '20098': '',
-    '200921': '',
-    '20101': '',
-    '201015': '',
-    '201018': '',
-    '20112': '',
-    '201116': '',
-    '201119': '',
-    '20126': '',
-    '20135': '',
-    '20138': '',
-    '201319': '',
-    '201323': '',
-
-    '2019B16': '',
+    '20092': 'https://i0.wp.com/kevinshuang.com/wp-content/uploads/2016/07/2009-2.png?resize=639%2C282&ssl=1',
+    '20098': 'https://i2.wp.com/kevinshuang.com/wp-content/uploads/2016/07/2009-8.png?resize=639%2C416&ssl=1',
+    '200921': 'https://i0.wp.com/kevinshuang.com/wp-content/uploads/2016/07/2009-21.png?resize=639%2C398&ssl=1',
+    '20101': 'https://i0.wp.com/kevinshuang.com/wp-content/uploads/2016/07/2010-1.png?resize=639%2C338&ssl=1',
+    '201015': 'https://i0.wp.com/kevinshuang.com/wp-content/uploads/2016/07/2010-15.png?resize=639%2C352&ssl=1',
+    '201018': 'https://i1.wp.com/kevinshuang.com/wp-content/uploads/2016/07/2010-18.png?resize=639%2C802&ssl=1',
+    '20112': 'https://i0.wp.com/kevinshuang.com/wp-content/uploads/2016/07/2011-2.png?resize=639%2C329&ssl=1',
+    '201116': 'https://i0.wp.com/kevinshuang.com/wp-content/uploads/2016/07/2011-16.png?resize=639%2C368&ssl=1',
+    '201119': 'https://i2.wp.com/kevinshuang.com/wp-content/uploads/2016/07/2011-19.png?resize=639%2C240&ssl=1',
+    '20126': 'https://i1.wp.com/kevinshuang.com/wp-content/uploads/2016/07/2012-61.png?resize=639%2C496&ssl=1',
+    '20135': 'https://i0.wp.com/kevinshuang.com/wp-content/uploads/2016/07/2013-5.png?resize=639%2C466&ssl=1',
+    '20138': 'https://i2.wp.com/kevinshuang.com/wp-content/uploads/2016/07/2013-8.png?resize=639%2C214&ssl=1',
+    '201319': 'https://i0.wp.com/kevinshuang.com/wp-content/uploads/2016/07/2013-19.png?resize=639%2C198&ssl=1',
+    '201323': 'https://i0.wp.com/kevinshuang.com/wp-content/uploads/2016/07/2013-23.png?resize=639%2C234&ssl=1',
+    '201412': 'https://i0.wp.com/kevinshuang.com/wp-content/uploads/2016/07/2014-12.png?resize=639%2C477&ssl=1',
+    '201423': 'https://i1.wp.com/kevinshuang.com/wp-content/uploads/2016/07/2014-23.png?resize=639%2C238&ssl=1',
+    '20157': 'https://i2.wp.com/kevinshuang.com/wp-content/uploads/2016/07/2015-7.png?resize=639%2C346&ssl=1',
+    '20159': 'https://i1.wp.com/kevinshuang.com/wp-content/uploads/2016/07/2015-9.png?resize=639%2C255&ssl=1',
+    '201512': 'https://i1.wp.com/kevinshuang.com/wp-content/uploads/2016/07/2015-12.png?resize=639%2C233&ssl=1',
+    '201514': 'https://i2.wp.com/kevinshuang.com/wp-content/uploads/2016/07/2015-14.png?resize=639%2C282&ssl=1',
+    '201519': 'https://i2.wp.com/kevinshuang.com/wp-content/uploads/2016/07/2015-19.png?resize=639%2C272&ssl=1',
+    '20165': 'https://i0.wp.com/kevinshuang.com/wp-content/uploads/2016/10/51.png?resize=639%2C561&ssl=1',
+    '201614': 'https://i1.wp.com/kevinshuang.com/wp-content/uploads/2016/10/142.png?resize=639%2C533&ssl=1',
+    '201621': 'https://i1.wp.com/kevinshuang.com/wp-content/uploads/2016/10/21-222.png?resize=639%2C421&ssl=1',
+    '20177': 'https://i0.wp.com/kevinshuang.com/wp-content/uploads/2017/10/screen-shot-2017-10-14-at-9-18-50-pm.png?resize=639%2C403&ssl=1',
+    '201711': 'https://i2.wp.com/kevinshuang.com/wp-content/uploads/2017/10/screen-shot-2017-10-14-at-9-20-49-pm.png?resize=639%2C519&ssl=1',
+    '201714': 'https://i1.wp.com/kevinshuang.com/wp-content/uploads/2017/10/screen-shot-2017-10-14-at-9-21-20-pm.png?resize=639%2C364&ssl=1',
+    '201720': 'https://i2.wp.com/kevinshuang.com/wp-content/uploads/2017/10/screen-shot-2017-10-14-at-9-22-32-pm.png?resize=639%2C242&ssl=1',
+    '2019B16': 'https://i1.wp.com/kevinshuang.com/wp-content/uploads/2019/05/B16.png?resize=768%2C342&ssl=1',
     '2020A9': 'https://i0.wp.com/kevinshuang.com/wp-content/uploads/2020/08/a9.png?resize=768%2C145&ssl=1',
     '2020B9': 'https://i1.wp.com/kevinshuang.com/wp-content/uploads/2020/08/b9.png?resize=768%2C270&ssl=1',
     '20211': 'https://i1.wp.com/kevinshuang.com/wp-content/uploads/2021/04/1.png?resize=768%2C490&ssl=1',
@@ -170,6 +180,8 @@ class AAPTCog(commands.Cog):
         if cat == 'misc':
             i = randint(0, len(misc) - 1)
             ver, year, question = misc[i][0:1], misc[i][1:5], misc[i][5:]
+
+
 
         year = year + ver if year in ('2018', '2019', '2020') else year
         await prob(ctx, year, int(question))
